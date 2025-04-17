@@ -37,18 +37,24 @@ export const Sidebar = ({ expanded, toggleSidebar, isMobile }) => {
                   to={route.path}
                   className="flex items-center gap-3 p-2 pl-3 text-[#888C93]"
                 >
-                  {route.icon && (
-                    <span
-                    >
-                      {route.icon}
-                    </span>
-                  )}
+                  {route.icon && <span>{route.icon}</span>}
                   {(isMobile || expanded) && <span>{route.name}</span>}
                 </Link>
               </li>
             ))}
         </ul>
       </nav>
+
+      {/* Footer del sidebar: Perfil */}
+      <div className="border-t border-[#ccc] pt-4">
+        <Link
+          to={routes[5].path}
+          className="flex items-center gap-3 p-2 pl-3 text-[#888C93] hover:bg-[#f3f3f3] rounded-lg transition-colors"
+        >
+          <span>{routes[5].icon}</span>
+          {(isMobile || expanded) && <span>{routes[5].name}</span>}
+        </Link>
+      </div>
     </aside>
   );
 };
