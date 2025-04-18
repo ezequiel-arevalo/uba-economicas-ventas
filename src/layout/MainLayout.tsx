@@ -5,7 +5,6 @@ import { Header } from "./Header";
 import { Sidebar } from "./Sidebar";
 
 export const MainLayout = () => {
-
   // Para escritorio: controla expansión (w-64 / w-20)
   const [sidebarExpanded, setSidebarExpanded] = useState(true);
   // Para tablet/mobile: controla visibilidad del overlay
@@ -22,43 +21,39 @@ export const MainLayout = () => {
   };
 
   return (
-    <div className="h-screen flex flex-col p-3 box-border gap-3">
+    <div className="h-screen flex flex-col p-3 box-border gap-3 bg-base-200 text-base-content">
       {/* Header */}
       <Header toggleMobileSidebar={toggleMobileSidebar} />
 
       <div className="relative flex flex-1 gap-3 overflow-hidden">
+        <>
+          {/* Sidebar para desktop */}
+          <div className="hidden md:flex">
+            <Sidebar
+              expanded={sidebarExpanded}
+              toggleSidebar={toggleSidebarExpanded}
+              isMobile={false}
+            />
+          </div>
 
-          <>
-            {/* Sidebar para desktop */}
-            <div className="hidden md:flex">
-              <Sidebar
-                expanded={sidebarExpanded}
-                toggleSidebar={toggleSidebarExpanded}
-                isMobile={false}
-              />
-            </div>
-
-            {/* Sidebar overlay para tablet/mobile */}
-            {mobileSidebarVisible && (
-              <div className="md:hidden fixed inset-0 z-50 flex">
-                <div className="w-64">
-                  <Sidebar
-                    expanded={true}
-                    toggleSidebar={toggleMobileSidebar}
-                    isMobile={true}
-                  />
-                </div>
-                {/* Clic fuera para cerrar */}
-                <div
-                  className="flex-1"
-                  onClick={toggleMobileSidebar}
+          {/* Sidebar overlay para tablet/mobile */}
+          {mobileSidebarVisible && (
+            <div className="md:hidden fixed inset-0 z-50 flex">
+              <div className="w-64">
+                <Sidebar
+                  expanded={true}
+                  toggleSidebar={toggleMobileSidebar}
+                  isMobile={true}
                 />
               </div>
-            )}
-          </>
+              {/* Clic fuera para cerrar */}
+              <div className="flex-1" onClick={toggleMobileSidebar} />
+            </div>
+          )}
+        </>
 
         {/* Contenido principal */}
-        <main className="flex-1 p-4 rounded-lg overflow-y-scroll bg-[#ffffff] hide-scrollbar">
+        <main className="flex-1 p-4 rounded-lg overflow-y-scroll bg-base-100 text-base-content hide-scrollbar">
           <Outlet />
         </main>
       </div>

@@ -1,0 +1,19 @@
+{
+  "appName": "UBA ECONOMICS",
+  "pages": {
+    "error": {
+      "title": "404",
+      "message": "Page not found",
+      "backToDashboard": "Back to Dashboard"
+    },
+    "home": {
+      "upload": "Upload file",
+      "export": "Export"
+    },
+    "settings": {
+      "title": "Settings",
+      "theme": "Theme",
+      "language": "Language"
+    }
+  }
+}

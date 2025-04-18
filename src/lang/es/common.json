@@ -1,0 +1,19 @@
+{
+  "appName": "UBA ECONÓMICAS",
+  "pages": {
+    "error": {
+      "title": "404",
+      "message": "Página no encontrada",
+      "backToDashboard": "Volver al Dashboard"
+    },
+    "home": {
+      "upload": "Cargar archivo",
+      "export": "Exportar"
+    },
+    "settings": {
+      "title": "Configuración",
+      "theme": "Tema",
+      "language": "Idioma"
+    }
+  }
+}

@@ -1,9 +1,12 @@
 import { Menu } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export const Header = ({ toggleMobileSidebar }) => {
+  const { t } = useTranslation();
+
   return (
     <header className="w-full">
-      <nav className="navbar bg-base-100 shadow-sm h-16 px-4">
+      <nav className="navbar bg-base-100 shadow-sm h-16 px-4 text-base-content">
         {/* navbar-start */}
         <div className="navbar-start">
           {/* Botón para activar el sidebar en mobile/tablet */}
@@ -18,7 +21,7 @@ export const Header = ({ toggleMobileSidebar }) => {
         {/* navbar-center */}
         <div className="navbar-center">
           <h1 className="text-xl font-bold">
-            UBA ECONOMICAS
+            {t("appName")}
           </h1>
         </div>
       </nav>
